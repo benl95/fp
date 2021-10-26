@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import {parseResponse} from './utils/parseResponse.js'
 
 fetch('https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json')
     .then(parseResponse)
@@ -11,7 +12,3 @@ fetch('https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-da
         return data.map(a => ({ auto: a[keys[0]], animal: a[keys[1]] }));
     })
     .then(data => console.log(data));
-
-function parseResponse(res) {
-    return res.json();
-}
