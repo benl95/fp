@@ -1,14 +1,23 @@
 import fetch from 'node-fetch';
-import {parseResponse} from './utils/parseResponse.js'
+import { parseResponse } from './utils/parseResponse.js'
+import { filterKey } from './modules/filterKey.js';
 
 fetch('https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json')
     .then(parseResponse)
     .then(data => {
-        const keys = [
-            'Als je later een auto zou kopen, van welk merk zou deze dan zijn?',
+        const keysArray = [
             'Wat is je favoriete soort huisdier?',
-        ];
-
-        return data.map(a => ({ auto: a[keys[0]], animal: a[keys[1]] }));
+            'Als je later een auto zou kopen, van welk merk zou deze dan zijn?',
+            'Wat is je oogkleur?',
+            'Op een schaal van 1 tot 10, hoeveel zin heb je in de Tech Track?',
+            'Wat is je favoriete datum?',
+            'Wat is je favoriete zuivelproduct?',
+            'Welke kleur kledingstukken heb je aan vandaag? (Meerdere antwoorden mogelijk natuurlijk...)',
+            'Op welke verdieping van het TTH studeer je het liefst?',
+            'Wat wil je worden als je groot bent?',
+            'Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.'
+        ]
+        return data.map(obj => filterKey(obj, keysArray))
     })
-    .then(data => console.log(data));
+    .then(filtered =>  console.log(filtered))
+
