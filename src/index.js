@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { parseResponse } from './utils/parseResponse.js'
-import { filterKey } from './modules/filterKey.js';
+import { filterKeyByReference } from './modules/filterKey.js';
 
 fetch('https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json')
     .then(parseResponse)
@@ -17,7 +17,6 @@ fetch('https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-da
             'Wat wil je worden als je groot bent?',
             'Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.'
         ]
-        return data.map(obj => filterKey(obj, keysArray))
+       return data.map(obj => filterKeyByReference(obj, keysArray))
     })
     .then(filtered =>  console.log(filtered))
-
