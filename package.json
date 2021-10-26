@@ -11,5 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1"
   }
 }
