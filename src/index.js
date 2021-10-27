@@ -1,13 +1,14 @@
-import fetch from 'node-fetch';
-import { parseResponse } from './utils/parseResponse.js';
-import { filterKeyByReference } from './modules/filterKey.js';
+// External modules
+const axios = require('axios');
 
-fetch(
+// Local modules
+const { filterKeyByReference } = require('./modules/filterKeyByReference');
+
+axios(
     'https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json'
 )
-    .then(parseResponse)
-    .then((data) => {
-        return data.map((obj) =>
+    .then(({ data }) =>
+        data.map((obj) =>
             filterKeyByReference(obj)(
                 'Wat is je favoriete soort huisdier?',
                 'Als je later een auto zou kopen, van welk merk zou deze dan zijn?',
@@ -20,7 +21,9 @@ fetch(
                 'Wat wil je worden als je groot bent?',
                 'Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.'
             )
-        );
-    })
+        )
+    )
     .then((filtered) => console.log(filtered))
-    .catch((error) => console.log(error));
+    .catch((error) => {
+        throw new Error(error);
+    });
