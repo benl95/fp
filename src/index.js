@@ -1,29 +1,56 @@
 // External modules
-const axios = require('axios');
+const needle = require('needle');
 
 // Local modules
+const { renameKeyTo } = require('./modules/renameKeys');
 const { filterKeyByReference } = require('./modules/filterKeyByReference');
 
-axios(
+needle(
     'https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json'
 )
-    .then(({ data }) =>
-        data.map((obj) =>
-            filterKeyByReference(obj)(
-                'Wat is je favoriete soort huisdier?',
-                'Als je later een auto zou kopen, van welk merk zou deze dan zijn?',
-                'Wat is je oogkleur?',
-                'Op een schaal van 1 tot 10, hoeveel zin heb je in de Tech Track?',
-                'Wat is je favoriete datum?',
-                'Wat is je favoriete zuivelproduct?',
-                'Welke kleur kledingstukken heb je aan vandaag? (Meerdere antwoorden mogelijk natuurlijk...)',
-                'Op welke verdieping van het TTH studeer je het liefst?',
-                'Wat wil je worden als je groot bent?',
-                'Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.'
+    .then(({ body }) => JSON.parse(body))
+    .then((parsed) =>
+        parsed.map((obj) =>
+            renameKeyTo(
+                {
+                    'Wat is je favoriete soort huisdier?': 'favoritePet',
+                    'Wat is je oogkleur?': 'eyeColor',
+                    'Wat is je favoriete windrichting?':
+                        'favoriteWindDirection',
+                    'Op een schaal van 1 tot 10, hoeveel zin heb je in de Tech Track?':
+                        'intrinsicMotivation',
+                    'Wat is je favoriete datum?': 'favoriteDate',
+                    'Wat is je favoriete zuivelproduct?':
+                        'favoriteDairyProduct',
+                    'Welke kleur kledingstukken heb je aan vandaag? (Meerdere antwoorden mogelijk natuurlijk...)':
+                        'clothesWearingToday',
+                    'Op welke verdieping van het TTH studeer je het liefst?':
+                        'favoriteStudyFloor',
+                    'Wat wil je worden als je groot bent?': 'aspiringDream',
+                    'Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.':
+                        'aspiringDreamChild',
+                    'Als je later een auto zou kopen, van welk merk zou deze dan zijn?':
+                        'aspiringCarBrand',
+                },
+                obj
             )
         )
     )
-    .then((filtered) => console.log(filtered))
-    .catch((error) => {
-        throw new Error(error);
-    });
+    .then((newObject) =>
+        newObject.map((obj) =>
+            filterKeyByReference(
+                obj,
+                'eyeColor',
+                'favoriteWindDirection',
+                'intrinsicMotivation',
+                'favoriteDate',
+                'favoriteDairyProduct',
+                'clothesWearingToday',
+                'aspiringDream',
+                'aspiringDreamChild',
+                'aspiringCarBrand'
+            )
+        )
+    )
+    .then((result) => console.log(result))
+    .catch((error) => console.log(error));
