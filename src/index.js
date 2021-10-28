@@ -4,6 +4,7 @@ const needle = require('needle');
 // Local modules
 const { renameKeyTo } = require('./modules/renameKeys');
 const { filterKeyByReference } = require('./modules/filterKeyByReference');
+const { stringToArray } = require('./modules/stringToArray');
 
 needle(
     'https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json'
@@ -51,6 +52,9 @@ needle(
                 'aspiringCarBrand'
             )
         )
+    )
+    .then((result) =>
+        result.map((obj) => stringToArray(obj, 'clothesWearingToday'))
     )
     .then((result) => console.log(result))
     .catch((error) => console.log(error));
