@@ -1,5 +1,5 @@
 function stringToArray(obj, key) {
-    obj[key] = obj[key].split(' ');
+    obj[key] = obj[key].toLowerCase().split(' ');
     return obj;
 }
 
