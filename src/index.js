@@ -6,6 +6,7 @@ const { renameKeyTo } = require('./modules/renameKeys');
 const { filterKeyByReference } = require('./modules/filterKeyByReference');
 const { stringToArray } = require('./modules/stringToArray');
 const { toLowerCase } = require('./modules/toLowerCase');
+const { removeUndefined } = require('./modules/removeUndefined');
 
 needle(
     'https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json'
@@ -58,5 +59,6 @@ needle(
         result.map((obj) => stringToArray(obj, 'clothesWearingToday'))
     )
     .then((result) => result.map((obj) => toLowerCase(obj)))
+    .then((result) => result.map((obj) => removeUndefined(obj)))
     .then((result) => console.log(result))
     .catch((error) => console.log(error));
