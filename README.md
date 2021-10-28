@@ -38,6 +38,12 @@ Navigate to the cloned repo and type in the following commands:
 
 The project can be executed by navigating to the `src` directory and executing the `index.js` file by typing `node index.js`
 
+## To Do's
+
+[ ] All answers to lowercase
+[ ] Convert unaswered questions to null
+[ ] Store values clothesWearingToday in array
+
 ## license
 
 MIT
