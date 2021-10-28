@@ -44,7 +44,7 @@ The project can be executed by navigating to the `src` directory and executing t
 -   [x] Filter out useless data
 -   [x] All answers to lowercase
 -   [x] Store values clothesWearingToday in array
--   [ ] Convert unanswered questions to null/not answered
+-   [x] Convert unanswered questions to null/not answered
 
 ## license
 
