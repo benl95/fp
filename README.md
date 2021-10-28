@@ -45,6 +45,8 @@ The project can be executed by navigating to the `src` directory and executing t
 -   [x] All answers to lowercase
 -   [x] Store values clothesWearingToday in array
 -   [x] Convert unanswered questions to null/not answered
+-   [ ] Change aspiringCarBrand value to brand only (right now specific cars are mentioned sometimes)
+-   [ ] Convert eye colors to HEX code
 
 ## license
 
