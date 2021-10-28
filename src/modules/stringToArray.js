@@ -1,6 +1,10 @@
-function stringToArray(obj, key) {
-    obj[key] = obj[key].toLowerCase().split(' ');
-    return obj;
+function propValueToArray(obj, reference) {
+    const toArray = Object.entries(obj).map(([key, val]) => [
+        key,
+        obj[reference] === obj[key] ? obj[key].toLowerCase().split(' ') : val,
+    ]);
+
+    return Object.fromEntries(toArray);
 }
 
-module.exports = { stringToArray };
+module.exports = { propValueToArray };

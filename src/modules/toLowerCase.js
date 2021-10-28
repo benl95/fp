@@ -1,6 +1,5 @@
 function toLowerCase(obj) {
-    const entries = Object.entries(obj);
-    const upperCase = entries.map(([key, val]) => [
+    const upperCase = Object.entries(obj).map(([key, val]) => [
         key,
         typeof val === 'string' ? val.toLowerCase() : val,
     ]);

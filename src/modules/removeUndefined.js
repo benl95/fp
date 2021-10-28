@@ -1,6 +1,5 @@
 function removeUndefined(obj) {
-    const entries = Object.entries(obj);
-    const notAnswered = entries.map(([key, val]) => [
+    const notAnswered = Object.entries(obj).map(([key, val]) => [
         key,
         val === '' ? 'Geen antwoord' : val,
     ]);
