@@ -5,7 +5,7 @@ const needle = require('needle');
 const { renameKeys } = require('./modules/renameKeys');
 const { removeUselessData } = require('./modules/filterInProps');
 const { clothesValuesToArray } = require('./modules/stringToArray');
-const { toLowerCase } = require('./modules/toLowerCase');
+const { propValToLowerCase } = require('./modules/toLowerCase');
 const { removeUndefined } = require('./modules/removeUndefined');
 const { eyeColorToHex } = require('./modules/stringToHex');
 
@@ -16,7 +16,7 @@ needle(
     .then((data) => data.map(renameKeys))
     .then((data) => data.map(removeUselessData))
     .then((data) => data.map(clothesValuesToArray))
-    .then((data) => data.map(toLowerCase))
+    .then((data) => data.map(propValToLowerCase))
     .then((data) => data.map(removeUndefined))
     .then((data) => data.map(eyeColorToHex))
     .then((data) => console.log(data))

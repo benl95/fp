@@ -1,5 +1,5 @@
 function propValueToArray(keyReference) {
-    return function accessObj(obj) {
+    return function newObj(obj) {
         const toArray = Object.entries(obj).map(([key, val]) => [
             key,
             obj[keyReference] === obj[key]

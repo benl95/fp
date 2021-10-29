@@ -1,4 +1,4 @@
-function toLowerCase(obj) {
+function propValToLowerCase(obj) {
     const upperCase = Object.entries(obj).map(([key, val]) => [
         key,
         typeof val === 'string' ? val.toLowerCase() : val,
@@ -7,4 +7,4 @@ function toLowerCase(obj) {
     return Object.fromEntries(upperCase);
 }
 
-module.exports = { toLowerCase };
+module.exports = { propValToLowerCase };
