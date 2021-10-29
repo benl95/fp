@@ -1,13 +1,8 @@
-const colorsMap = {
-    blauw: '#0000FF',
-    groen: '#00b300',
-    bruin: '#a52a2a',
-    grijs: '#808080',
-};
+const referenceMap = require('./assets/colorsMap');
 
-function transformProp(reference) {
+function stringToWebColor(reference) {
     return function keyName(key) {
-        return function matchPropVal(obj) {
+        return function newObj(obj) {
             const matched = Object.keys(reference).find(
                 (element) => element === obj[key]
             );
@@ -16,6 +11,6 @@ function transformProp(reference) {
     };
 }
 
-const eyeColorToHex = transformProp(colorsMap)('eyeColor');
+const eyeColorToHex = stringToWebColor(referenceMap)('eyeColor');
 
 module.exports = { eyeColorToHex };
