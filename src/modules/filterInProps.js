@@ -1,14 +1,4 @@
-const propsToFilter = [
-    'eyeColor',
-    'favoriteWindDirection',
-    'intrinsicMotivation',
-    'favoriteDate',
-    'favoriteDairyProduct',
-    'clothesWearingToday',
-    'aspiringDream',
-    'aspiringDreamChild',
-    'aspiringCarBrand',
-];
+const propsToFilter = require('./assets/propsMap');
 
 function filterInProps(props) {
     return function newObj(obj) {
