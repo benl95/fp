@@ -1,5 +1,15 @@
 const referenceMap = require('./assets/colorsMap');
 
+const eyeColorToHex = stringToWebColor(referenceMap)('eyeColor');
+
+/**
+ * Takes an object and returns a web color based on the
+ * color the string represents
+ * @param reference common eye colors reference HEX map
+ * @param key the desired property key to perform the transformation on
+ * @param obj target object to perform the transformation on
+ *
+ */
 function stringToWebColor(reference) {
     return function keyName(key) {
         return function newObj(obj) {
@@ -10,7 +20,5 @@ function stringToWebColor(reference) {
         };
     };
 }
-
-const eyeColorToHex = stringToWebColor(referenceMap)('eyeColor');
 
 module.exports = { eyeColorToHex };

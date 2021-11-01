@@ -1,3 +1,12 @@
+const clothesValuesToArray = propValueToArray('clothesWearingToday');
+
+/**
+ * Takes an object and and returns an array containing
+ * the string values of the property
+ * @param keyReference the target property key to perform the transformation on
+ * @param obj target object to perform the transformation on
+ *
+ */
 function propValueToArray(keyReference) {
     return function newObj(obj) {
         const toArray = Object.entries(obj).map(([key, val]) => [
@@ -10,7 +19,5 @@ function propValueToArray(keyReference) {
         return Object.fromEntries(toArray);
     };
 }
-
-const clothesValuesToArray = propValueToArray('clothesWearingToday');
 
 module.exports = { clothesValuesToArray };
