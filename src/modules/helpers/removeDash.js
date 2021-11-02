@@ -1,5 +1,3 @@
-const removeDashEyeColor = removeDashCharacter('eyeColor');
-
 /**
  * Takes a key and an object and removes the dash characters from the given key
  * @param key target key to remove the dash from the prop values
@@ -13,4 +11,4 @@ function removeDashCharacter(key) {
     };
 }
 
-module.exports = { removeDashEyeColor };
+module.exports = { removeDashCharacter };

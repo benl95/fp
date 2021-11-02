@@ -1,7 +1,3 @@
-const referenceMap = require('./assets/keysMap');
-
-const renameKeys = renameKeyTo(referenceMap);
-
 /**
  * Takes an object and returns a new object with the renamed property keys
  * @param keysMap a map of the desired keys to rename and what to rename to
@@ -20,4 +16,4 @@ function renameKeyTo(keysMap) {
     };
 }
 
-module.exports = { renameKeys };
+module.exports = { renameKeyTo };

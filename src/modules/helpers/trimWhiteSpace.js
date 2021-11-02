@@ -1,5 +1,3 @@
-const trimEyeColor = trimWhiteSpace('eyeColor');
-
 /**
  * Takes a key and an object and removes the dash characters from the given key
  * @param key target key to remove whitespace from the prop values
@@ -12,4 +10,4 @@ function trimWhiteSpace(key) {
     };
 }
 
-module.exports = { trimEyeColor };
+module.exports = { trimWhiteSpace };

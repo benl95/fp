@@ -3,7 +3,7 @@
  * lowercased string
  * @param obj input object to perform lowercasing on
  */
-function propValToLowerCase(obj) {
+function toLowerCase(obj) {
     const upperCase = Object.entries(obj).map(([key, val]) => [
         key,
         typeof val === 'string' ? val.toLowerCase() : val,
@@ -12,4 +12,4 @@ function propValToLowerCase(obj) {
     return Object.fromEntries(upperCase);
 }
 
-module.exports = { propValToLowerCase };
+module.exports = { toLowerCase };

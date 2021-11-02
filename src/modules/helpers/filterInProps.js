@@ -1,7 +1,3 @@
-const propsToFilter = require('./assets/propsMap');
-
-const removeUselessData = filterInProps(propsToFilter);
-
 /**
  * Takes an object and and returns a new object with filtered properties
  * @param props the properties to filter in
@@ -17,4 +13,4 @@ function filterInProps(props) {
     };
 }
 
-module.exports = { removeUselessData };
+module.exports = { filterInProps };

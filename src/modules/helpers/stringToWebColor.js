@@ -1,7 +1,3 @@
-const referenceMap = require('./assets/colorsMap');
-
-const eyeColorToHex = stringToWebColor(referenceMap)('eyeColor');
-
 /**
  * Takes an object and returns a web color based on the
  * color the string represents
@@ -21,4 +17,4 @@ function stringToWebColor(reference) {
     };
 }
 
-module.exports = { eyeColorToHex };
+module.exports = { stringToWebColor };
