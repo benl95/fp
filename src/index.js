@@ -7,7 +7,7 @@ const { removeUselessData } = require('./modules/filterInProps');
 const { clothesValuesToArray } = require('./modules/stringToArray');
 const { propValToLowerCase } = require('./modules/toLowerCase');
 const { removeUndefined } = require('./modules/removeUndefined');
-const { eyeColorToHex } = require('./modules/stringToHex');
+const { trimEyeColor } = require('./modules/trimWhiteSpace');
 
 needle(
     'https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json'
@@ -18,6 +18,6 @@ needle(
     .then((data) => data.map(clothesValuesToArray))
     .then((data) => data.map(propValToLowerCase))
     .then((data) => data.map(removeUndefined))
-    .then((data) => data.map(eyeColorToHex))
+    .then((data) => data.map(trimEyeColor))
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
