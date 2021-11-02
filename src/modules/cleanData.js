@@ -14,7 +14,7 @@ const keysMap = require('../assets/keysMap');
 const propsMap = require('../assets/propsMap');
 const colorsMap = require('../assets/colorsMap');
 
-// Curried functions
+// Partially apply
 const trimStr = trimWhiteSpace('eyeColor');
 const removeDashStr = removeDashCharacter('eyeColor');
 const strToHex = stringToWebColor(colorsMap)('eyeColor');
