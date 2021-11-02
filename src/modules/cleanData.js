@@ -1,5 +1,5 @@
+// Utilities
 const { pipe } = require('./utils/pipe');
-const { parseJson } = require('./utils/parseJson');
 const { stringToWebColor } = require('./helpers/stringToWebColor');
 const { trimWhiteSpace } = require('./helpers/trimWhiteSpace');
 const { removeDashCharacter } = require('./helpers/removeDash');
@@ -25,7 +25,6 @@ const clothesToArray = stringToArray('clothesWearingToday');
 // Functions chains
 function cleanProps(x) {
     return pipe(
-        parseJson,
         renameKeys,
         newObj,
         toLowerCase,
