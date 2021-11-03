@@ -49,6 +49,11 @@ The project can be executed by navigating to the `src` directory and executing t
 -   [x] Remove dash characters from eyeColors
 -   [x] Remove whitespace from eyeColors
 -   [ ] Convert clothesWearingToday answers to HEX Code
+-   [ ] Refactor to fetch code with Promises instead of needle
+-   [ ] Show early iterations of code in logbook
+-   [ ] Write README
+-   [ ] Write logbook (process, thing I learned and applied, etc.)
+-   [ ] Render results to view
 
 ## license
 
