@@ -22,19 +22,19 @@ const renameKeys = renameKeyTo(keysMap);
 const newObj = filterInProps(propsMap);
 const clothesToArray = stringToArray('clothesWearingToday');
 
-// Functions chains
-function cleanProps(x) {
+// Function chains
+function cleanProps(rawData) {
     return pipe(
         renameKeys,
         newObj,
         toLowerCase,
         removeUndefined,
         clothesToArray
-    )(x);
+    )(rawData);
 }
 
-function cleanEyeColor(x) {
-    return pipe(trimStr, removeDashStr, strToHex)(x);
+function cleanEyeColor(rawData) {
+    return pipe(trimStr, removeDashStr, strToHex)(rawData);
 }
 
 module.exports = { cleanProps, cleanEyeColor };
