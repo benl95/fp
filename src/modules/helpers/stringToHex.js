@@ -6,7 +6,7 @@
  * @param obj target object to perform the transformation on
  *
  */
-function stringToWebColor(reference) {
+function stringToHex(reference) {
     return function keyName(key) {
         return function newObj(obj) {
             const matched = Object.keys(reference).find(
@@ -17,4 +17,4 @@ function stringToWebColor(reference) {
     };
 }
 
-module.exports = { stringToWebColor };
+module.exports = { stringToHex };

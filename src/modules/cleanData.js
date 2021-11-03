@@ -1,6 +1,6 @@
 // Utilities
 const { pipe } = require('./utils/pipe');
-const { stringToWebColor } = require('./helpers/stringToWebColor');
+const { stringToHex } = require('./helpers/stringToHex');
 const { trimWhiteSpace } = require('./helpers/trimWhiteSpace');
 const { removeDashCharacter } = require('./helpers/removeDash');
 const { filterInProps } = require('./helpers/filterInProps');
@@ -17,7 +17,7 @@ const colorsMap = require('../assets/colorsMap');
 // Partially applied
 const trimStr = trimWhiteSpace('eyeColor');
 const removeDashStr = removeDashCharacter('eyeColor');
-const strToHex = stringToWebColor(colorsMap)('eyeColor');
+const strToHex = stringToHex(colorsMap)('eyeColor');
 const renameKeys = renameKeyTo(keysMap);
 const newObj = filterInProps(propsMap);
 const clothesToArray = stringToArray('clothesWearingToday');
