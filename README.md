@@ -1,8 +1,17 @@
 ## Functional Programming
 
-This repo is dedicated to cleaning up a survey dataset by applying functional programming patterns and principles. During the course presentations about functional programming will be given. It is also expected of us that we do research about functional programming ourselves and finally apply these to the dataset we were given.
+This repo is dedicated to learning Functional Programming patterns and principles by applying them to a case. The learned patterns are applied to the following dataset: [Survey data](https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json)
 
-## Data
+## Learning goals
+
+-   Understanding and applying Functional Programming principles:
+    -   Pure and impure functions
+    -   High-order functions
+    -   Currying
+    -   Partial application
+    -   Composition by function chaining
+
+## Raw data
 
 The data we were given is a survey dataset that was conducted before the beginning of this course. The dataset is currently very messy and hard to work with. Some questions are left unanswered, there are questions which have no relevance at all, key names are to long, etc. Below an example of the data:
 
@@ -25,6 +34,17 @@ The data we were given is a survey dataset that was conducted before the beginni
 
 Link to the dataset: [Survey data](https://raw.githubusercontent.com/cmda-tt/course-21-22/main/tech-track-dataset.json)
 
+## Cleaned data
+
+By applying functional patterns the data has been cleaned. Property names have been renamed to shorter and more concise names, the values of the eyeColor have been converted to HEX values and the clothesWearingToday answers have been put in an array. The cleaned data looks as following:
+
+```json
+{
+    "eyeColor": "#0d98ba",
+    "clothesWearingToday": ["blauw,", "wit,", "grijs"]
+}
+```
+
 ## Installation guide
 
 Open your terminal and type in the following commands
@@ -32,11 +52,17 @@ Open your terminal and type in the following commands
 `cd desktop`
 `git clone https://github.com/benl95/fp.git`
 
-Navigate to the cloned repo and type in the following commands:
+Navigate to the cloned repo and type:
 
 `npm install`
 
-The project can be executed by navigating to the `src` directory and executing the `index.js` file by typing `node index.js`
+Navigate to src dir:
+
+`cd src`
+
+Execute index.js:
+
+`node index.js`
 
 ## To Do's
 
@@ -49,11 +75,14 @@ The project can be executed by navigating to the `src` directory and executing t
 -   [x] Remove dash characters from eyeColors
 -   [x] Remove whitespace from eyeColors
 -   [ ] Convert clothesWearingToday answers to HEX Code
--   [ ] Refactor to fetch code with Promises instead of needle
--   [ ] Show early iterations of code in logbook
--   [ ] Write README
--   [ ] Write logbook (process, thing I learned and applied, etc.)
--   [ ] Render results to view
+-   [ ] Update README
+-   [ ] Write logbook
+
+# Tools used
+
+-   NodeJS
+-   Prettier
+-   Needle
 
 ## license
 
