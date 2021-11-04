@@ -23,18 +23,18 @@ const newObj = filterInProps(propsMap);
 const clothesToArray = stringToArray('clothesWearingToday');
 
 // Function chains
-function cleanProps(rawData) {
+function cleanProps(x) {
     return pipe(
         renameKeys,
         newObj,
         toLowerCase,
         removeUndefined,
         clothesToArray
-    )(rawData);
+    )(x);
 }
 
-function cleanEyeColor(rawData) {
-    return pipe(trimStr, removeDashStr, strToHex)(rawData);
+function cleanEyeColor(x) {
+    return pipe(trimStr, removeDashStr, strToHex)(x);
 }
 
 module.exports = { cleanProps, cleanEyeColor };

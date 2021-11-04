@@ -5,11 +5,11 @@
  * @param obj target object to perform the transformation on
  *
  */
-function stringToArray(keyReference) {
+function stringToArray(reference) {
     return function newObj(obj) {
         const toArray = Object.entries(obj).map(([key, val]) => [
             key,
-            obj[keyReference] === obj[key]
+            obj[reference] === obj[key]
                 ? obj[key].toLowerCase().split(' ')
                 : val,
         ]);
