@@ -40,8 +40,8 @@ By applying functional patterns the data has been cleaned. Property names have b
 
 ```json
 {
-    "eyeColor": "#0d98ba",
-    "clothesWearingToday": ["blauw,", "wit,", "grijs"]
+    "eyeColor": "#0000FF",
+    "clothesWearingToday": ["#00b300", "#000000", "#ffffff"]
 }
 ```
 
