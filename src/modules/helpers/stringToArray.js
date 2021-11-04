@@ -10,7 +10,7 @@ function stringToArray(reference) {
         const toArray = Object.entries(obj).map(([key, val]) => [
             key,
             obj[reference] === obj[key]
-                ? obj[key].toLowerCase().split(' ')
+                ? obj[key].toLowerCase().replace(/[, ]+/g, ' ').split(' ')
                 : val,
         ]);
 
