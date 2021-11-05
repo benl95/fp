@@ -1,7 +1,5 @@
 const { colorArrayToHex } = require('./mapColors');
 
-const clothesArrayToHex = arrayToHex('clothesWearingToday');
-
 function arrayToHex(key) {
     return function newObj(obj) {
         const newArray = obj[key].map(colorArrayToHex);
@@ -9,4 +7,4 @@ function arrayToHex(key) {
     };
 }
 
-module.exports = { clothesArrayToHex };
+module.exports = { arrayToHex };

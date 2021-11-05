@@ -8,6 +8,7 @@ const { renameKeyTo } = require('./helpers/renameKeyTo');
 const { stringToArray } = require('./helpers/stringToArray');
 const { removeUndefined } = require('./helpers/removeUndefined');
 const { toLowerCase } = require('./helpers/toLowerCase');
+const { arrayToHex } = require('./helpers/arrayToHex');
 
 // Reference maps
 const keysMap = require('../assets/keysMap');
@@ -21,6 +22,7 @@ const strToHex = stringToHex(colorsMap)('eyeColor');
 const renameKeys = renameKeyTo(keysMap);
 const newObj = filterInProps(propsMap);
 const clothesToArray = stringToArray('clothesWearingToday');
+const clothesArrayToHex = arrayToHex('clothesWearingToday');
 
 // Function chains
 function cleanProps(x) {
@@ -33,8 +35,8 @@ function cleanProps(x) {
     )(x);
 }
 
-function cleanEyeColor(x) {
-    return pipe(trimStr, removeDashStr, strToHex)(x);
+function cleanColorProps(x) {
+    return pipe(trimStr, removeDashStr, strToHex, clothesArrayToHex)(x);
 }
 
-module.exports = { cleanProps, cleanEyeColor };
+module.exports = { cleanProps, cleanColorProps };
